@@ -101,8 +101,11 @@ public class QuestionController {
     {
         System.out.println(questions);
         int correct=0;
-        int notattempted=0;
+        int attempted=0;
         double marksgot=0;
+        double persentage=0;
+        int notattempted=0;
+        
        for(Question q:questions){
            Question qq=this.ser.gQuestion(q.getQuesId());
            if(qq.getAnswer().equals(q.getGivenAnswer()))
@@ -118,19 +121,24 @@ public class QuestionController {
 
            if(q.getGivenAnswer()!=null)
            {
-                notattempted++;
+                attempted++;
            }
+           
         }
         System.out.println(correct);
         System.out.println("attempted:-"+notattempted);
         System.out.println(marksgot);
+        persentage=(marksgot/Double.parseDouble(questions.get(0).getQuiz().getMaxMarks()))*100;
+        System.out.println(persentage);
 
         //add results
 
         Results results=new Results();
-         results.setAttempted(notattempted);
+         results.setAttempted(attempted);
          results.setMarksgot(marksgot);
          results.setQuiz(questions.get(0).getQuiz());
+         results.setPersentage(persentage);
+         results.setCorrectanswers(correct);
 
          Students st=new Students();
          st.setStuid(questions.get(0).getStudentId());
@@ -138,11 +146,12 @@ public class QuestionController {
          results.setStudents(st);
 
          this.rser.addresult(results);
+        Map<String,Object> map=Map.of("marksgot",marksgot,"correct",correct,"attempted",attempted,"persentage",persentage," notattempted", notattempted);
 
 
-         
+      
 
-        return ResponseEntity.ok("got questions with ans");
+        return ResponseEntity.ok(map);
     }
 
 

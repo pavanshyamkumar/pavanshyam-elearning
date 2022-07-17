@@ -35,9 +35,9 @@ public class ContentController {
     
 
    @PutMapping("/update")
-   public Content upda(@RequestBody Content content)
+   public ResponseEntity<Content> upda(@RequestBody Content content)
    {
-       return this.ser.updatecontent(content);
+       return ResponseEntity.ok(ser.updatecontent(content));
    }
 
    @GetMapping("/all")

@@ -43,11 +43,6 @@ public class UserController {
 	@Autowired
 	private StudentService stuser;
 
-	@GetMapping("/test")
-	public String test()
-	{
-		return "welcome to backend api of exam";
-	}
 	
 	@PostMapping("/createuserpro")
 	public Professors usercreatedoc(@RequestBody User uc) throws Exception {

@@ -20,6 +20,8 @@ public class Results {
 
     private double persentage;
 
+    private int correctanswers;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private Students students;
 
@@ -30,6 +32,18 @@ public class Results {
     }
 
   
+
+    public int getCorrectanswers() {
+        return correctanswers;
+    }
+
+
+
+    public void setCorrectanswers(int correctanswers) {
+        this.correctanswers = correctanswers;
+    }
+
+
 
     public Long getrId() {
         return rId;

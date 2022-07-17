@@ -18,7 +18,9 @@ public interface ResultsServe {
 
     public void del(Long rId);
 
-    public Results geybyquizstudent(Quiz quiz, Students students);
+    public Set<Results> geybyquizstudent(Quiz quiz, Students students);
+    public Set<Results> geybyquiz(Quiz quiz);
+    public Long countattemps(Quiz quiz, Students students);
     
     
 }

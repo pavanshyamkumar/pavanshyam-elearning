@@ -52,9 +52,21 @@ public class ResultsServiceImpl implements ResultsServe {
     }
 
     @Override
-    public Results geybyquizstudent(Quiz quiz, Students students) {
+    public Set<Results> geybyquizstudent(Quiz quiz, Students students) {
         
-        return this.repo.findByQuizAndStudents(quiz, students);
+        return new LinkedHashSet<>(this.repo.findByQuizAndStudents(quiz, students));
+    }
+
+    @Override
+    public Long countattemps(Quiz quiz, Students students)
+    {
+        return this.repo.countByQuizAndStudents(quiz,students);
+    }
+
+    @Override
+    public Set<Results> geybyquiz(Quiz quiz) {
+    
+        return new LinkedHashSet<>(this.repo.findByQuiz(quiz));
     }
 
     

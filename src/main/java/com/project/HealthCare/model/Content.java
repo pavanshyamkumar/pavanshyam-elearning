@@ -67,13 +67,7 @@ public class Content {
         this.lessions = lessions;
     }
 
-    public Content(Long conid, String conname, String downloadlink, String videolink, Lessions lessions) {
-        this.conid = conid;
-        this.conname = conname;
-        this.downloadlink = downloadlink;
-        this.videolink = videolink;
-        this.lessions = lessions;
-    }
+   
 
 
     
