@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 
-@Table(name="user")
+@Table(name="elearning_user")
 public class User implements UserDetails {
 	
 	
